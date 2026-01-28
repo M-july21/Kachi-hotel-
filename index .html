@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hotel Highway Menu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 15px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .menu-item {
+      background: #ffffff;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      font-size: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .price {
+      font-weight: bold;
+      color: green;
+    }
+    .order-btn {
+      text-align: center;
+      margin-top: 25px;
+    }
+    .order-btn button {
+      background: #25D366;
+      color: white;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🍽️ Hotel Highway Menu</h1>
+
+<div class="menu-item">
+  <label>
+    <input type="checkbox" value="Maggi - ₹30"> Maggi
+  </label>
+  <span class="price">₹30</span>
+</div>
+
+<div class="menu-item">
+  <label>
+    <input type="checkbox" value="Ghughuni - ₹20"> Ghughuni
+  </label>
+  <span class="price">₹20</span>
+</div>
+
+<div class="menu-item">
+  <label>
+    <input type="checkbox" value="Tea - ₹10"> Tea
+  </label>
+  <span class="price">₹10</span>
+</div>
+
+<div class="menu-item">
+  <label>
+    <input type="checkbox" value="Dahi Cheura - ₹30"> Dahi Cheura
+  </label>
+  <span class="price">₹30</span>
+</div>
+
+<div class="order-btn">
+  <button onclick="orderNow()">📲 Order on WhatsApp</button>
+</div>
+
+<script>
+  function orderNow() {
+    let items = [];
+    document.querySelectorAll('input[type=checkbox]:checked').forEach((item) => {
+      items.push(item.value);
+    });
+
+    if (items.length === 0) {
+      alert("Please select at least one item");
+      return;
+    }
+
+    let message = "Hello Hotel Highway,%0AMy order:%0A- " + items.join("%0A- ");
+    let phone = "918073812630";
+    let url = "https://wa.me/" + phone + "?text=" + message;
+
+    window.open(url, "_blank");
+  }
+</script>
+
+</body>
+</html>
